@@ -4,7 +4,6 @@ const StudentModule = require("./api/modules/student.module");
 const UserModule = require("./api/modules/User.module");
 const Routes = require("./routs/Routes");
 
-
 const app = express();
 app.use(express.json());
 app.use('/' , Routes)
