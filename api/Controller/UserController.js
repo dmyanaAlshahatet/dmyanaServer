@@ -1,10 +1,10 @@
 const { default: mongoose } = require("mongoose");
 const mongodb = require("mongodb");
-const userModule = require("../modules.js/user.module");
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-const songModule = require("../modules.js/song.module");
-const nodemailer = require("nodemailer");
+const userModole = require("../modules/User.module");
+
+// const bcrypt = require("bcryptjs");
+// const jwt = require("jsonwebtoken");
+
 module.exports = {
 
     Login: async (req, res) => {
@@ -17,7 +17,7 @@ module.exports = {
                 res.status(407).send("All input is required");
             }
             // Validate if user exist in our database
-            const user = await userModule.findOne({ email });
+            const user = await userModole.findOne({ email });
 
             if (user && (await bcrypt.compare(password, user.password))) {
                 // Create token

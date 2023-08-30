@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const StudentModule = require("./api/modules/student.module");
 const UserModule = require("./api/modules/User.module");
-const Routes = require("./routs/Routes");
+const Routes = require("./api/routes/Routes");
 
 const app = express();
 app.use(express.json());
