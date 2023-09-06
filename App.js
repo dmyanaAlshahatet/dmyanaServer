@@ -6,7 +6,7 @@ const Routes = require("./api/routes/Routes");
 
 const app = express();
 app.use(express.json());
-app.use('/' , Routes)
+app.use('/' , Routes);
 
 const mongooseLink =
     "mongodb+srv://dmyana2003:dmyana18891@cluster0.ooafvxw.mongodb.net/";
@@ -81,7 +81,5 @@ app.get("/getUsers", (req, res) => {
             res.status(500).json({ error: true, errorMessage: e })
         });
 });
-
-
 
 module.exports = app;
