@@ -6,7 +6,7 @@ const Routes = require("./api/routes/Routes");
 
 const app = express();
 app.use(express.json());
-app.use('/' , Routes);
+app.use('/', Routes);
 
 const mongooseLink =
     "mongodb+srv://dmyana2003:dmyana18891@cluster0.ooafvxw.mongodb.net/";
@@ -59,7 +59,7 @@ app.post("/creatNewUser", (req, res) => {
         name: req.body.name,
         email: req.body.email,
         password: req.body.password,
-        userName:req.body.userName,
+        userName: req.body.userName,
     }).then((response) => {
         res.status(200).json({
             message: "User added",

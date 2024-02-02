@@ -43,11 +43,11 @@ module.exports = {
 
             // Validate user input
             if (!(email && password)) {
-                res.status(408).json({ message: "All input is required" });
+                res.status(408).json({ message: "All input are required" });
             }
             // check if user already exist
             // Validate if user exist in our database
-            const oldUser = await userModule.findOne({ email });
+            const oldUser = await userModole.findOne({ email });
 
             if (oldUser) {
                 return res
@@ -58,22 +58,41 @@ module.exports = {
             encryptedPassword = await bcrypt.hash(password, 10);
 
             // Create user in our database
-            const user = await userModule.create({
+            const user = await userModole.create({
                 email: email.toLowerCase(), // sanitize: convert email to lowercase
                 password: encryptedPassword,
             });
 
-            const JWT_SECRET =
-                "goK!pusp6ThEdURUtRenOwUhAsWUCLheBazl!uJLPlS8EbreWLdrupIwabRAsiBu";
-            // Create token
-            const token = jwt.sign({ user_id: user._id, email }, JWT_SECRET);
+            // const JWT_SECRET =
+            //     "goK!pusp6ThEdURUtRenOwUhAsWUCLheBazl!uJLPlS8EbreWLdrupIwabRAsiBu";
+            // // Create token
+            // const token = jwt.sign({ user_id: user._id, email }, JWT_SECRET);
+            // // save user token
+            // user.token = token;
+            // // return new user
 
-            // save user token
-            user.token = token;
-            // return new user
             res.status(200).json({ user: user });
         } catch (err) {
             console.log(err);
         }
     },
+
+    // const: signUp = async (req, res) => {
+    //     console.log(req);
+    //     const { email, password } = req.body || {};
+    //     const mail = email?.toLowerCase()
+    //     try {
+    //         // Get user input 
+    //         // Valdate user input
+    //         if (!(email && password)) {
+    //             res.status(408).json({ message: "All input are required" }):
+    //             return
+    //         }
+    //         // check if user already exist
+    //         // Validate if user exist in our database
+    //     }
+    // }
 };
+module.exports = {
+    Login, Register,
+}

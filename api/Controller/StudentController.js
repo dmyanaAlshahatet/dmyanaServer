@@ -5,4 +5,4 @@ const StudentModule = require("../modules/student.module");
 module.exports = {
     
 
-};
+}
