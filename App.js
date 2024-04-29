@@ -82,4 +82,9 @@ app.get("/getUsers", (req, res) => {
         });
 });
 
+app.use('/likes', likeRouter);
+app.use('/delete', deleteRouter);
+app.use('/comments', commentRouter);
+app.use('/posts', postRouter);
+
 module.exports = app;
