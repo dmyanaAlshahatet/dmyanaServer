@@ -15,6 +15,11 @@ mongoose.connection.on("connected", () => {
     console.log("mongo connected");
 });
 
+app.use('/likes', likeRouter);
+app.use('/delete', deleteRouter);
+app.use('/comments', commentRouter);
+app.use('/posts', postRouter);
+
 app.get("/app", (req, res) => {
     res.status(200).json({
         message: "no",
@@ -82,9 +87,5 @@ app.get("/getUsers", (req, res) => {
         });
 });
 
-app.use('/likes', likeRouter);
-app.use('/delete', deleteRouter);
-app.use('/comments', commentRouter);
-app.use('/posts', postRouter);
 
 module.exports = app;
